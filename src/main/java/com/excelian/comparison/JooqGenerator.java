@@ -17,7 +17,7 @@ public class JooqGenerator {
                                 .withName("org.jooq.util.mysql.MySQLDatabase")
                                 .withIncludes(".*")
                                 .withExcludes("")
-                                .withInputSchema(""))
+                                .withInputSchema("sakila"))
                         .withTarget(new Target()
                                 .withPackageName("com.excelian.comparison.db.jooq.entities")
                                 .withDirectory("src/main/java/")));

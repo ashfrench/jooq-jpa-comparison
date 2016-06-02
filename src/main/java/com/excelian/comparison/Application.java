@@ -1,8 +1,8 @@
 package com.excelian.comparison;
 
-import com.excelian.comparison.db.PersistenceConfiguration;
+import com.excelian.comparison.db.jooq.dao.JooqDAO;
 import com.excelian.comparison.db.jpa.dao.ActorDAO;
-import com.excelian.comparison.db.jpa.entities.Actor;
+import com.excelian.comparison.db.jpa.entities.JpaActor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.orm.jpa.EntityScan;
@@ -15,18 +15,29 @@ import java.util.List;
 @SpringBootApplication
 public class Application {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
 
         ActorDAO actorDAO = context.getBean(ActorDAO.class);
-        Iterable<Actor> actors = actorDAO.findAll();
-        for(Actor actor : actors){
-            System.out.println(actor.getId());
-            System.out.println(actor);
+        Iterable<JpaActor> actors = actorDAO.findAll();
+        for(JpaActor jpaActor : actors){
+            System.out.println(jpaActor);
         }
 
-        List<Actor> johansson = actorDAO.findByLastName("JOHANSSON");
+        List<JpaActor> johansson = actorDAO.findByLastName("JOHANSSON");
         System.out.println(johansson);
+
+        System.out.println("");
+        System.out.println("");
+
+
+        JooqDAO jooqDAO = context.getBean(JooqDAO.class);
+        jooqDAO.doStuff();
+
+        System.out.println("");
+        System.out.println("");
+
+        jooqDAO.doJpaStuff();
     }
 
 }

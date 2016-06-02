@@ -4,13 +4,6 @@
 package com.excelian.comparison.db.jooq.entities;
 
 
-import com.excelian.comparison.db.jooq.entities.information_schema.InformationSchema;
-import com.excelian.comparison.db.jooq.entities.mysql.Mysql;
-import com.excelian.comparison.db.jooq.entities.performance_schema.PerformanceSchema;
-import com.excelian.comparison.db.jooq.entities.sakila.Sakila;
-import com.excelian.comparison.db.jooq.entities.sys.Sys;
-import com.excelian.comparison.db.jooq.entities.world.World;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -34,7 +27,7 @@ import org.jooq.impl.CatalogImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DefaultCatalog extends CatalogImpl {
 
-    private static final long serialVersionUID = -660359948;
+    private static final long serialVersionUID = 1346562190;
 
     /**
      * The reference instance of <code></code>
@@ -42,34 +35,9 @@ public class DefaultCatalog extends CatalogImpl {
     public static final DefaultCatalog DEFAULT_CATALOG = new DefaultCatalog();
 
     /**
-     * The schema <code>information_schema</code>.
-     */
-    public final InformationSchema INFORMATION_SCHEMA = com.excelian.comparison.db.jooq.entities.information_schema.InformationSchema.INFORMATION_SCHEMA;
-
-    /**
-     * The schema <code>mysql</code>.
-     */
-    public final Mysql MYSQL = com.excelian.comparison.db.jooq.entities.mysql.Mysql.MYSQL;
-
-    /**
-     * The schema <code>performance_schema</code>.
-     */
-    public final PerformanceSchema PERFORMANCE_SCHEMA = com.excelian.comparison.db.jooq.entities.performance_schema.PerformanceSchema.PERFORMANCE_SCHEMA;
-
-    /**
      * The schema <code>sakila</code>.
      */
-    public final Sakila SAKILA = com.excelian.comparison.db.jooq.entities.sakila.Sakila.SAKILA;
-
-    /**
-     * The schema <code>sys</code>.
-     */
-    public final Sys SYS = com.excelian.comparison.db.jooq.entities.sys.Sys.SYS;
-
-    /**
-     * The schema <code>world</code>.
-     */
-    public final World WORLD = com.excelian.comparison.db.jooq.entities.world.World.WORLD;
+    public final Sakila SAKILA = com.excelian.comparison.db.jooq.entities.Sakila.SAKILA;
 
     /**
      * No further instances allowed
@@ -87,11 +55,6 @@ public class DefaultCatalog extends CatalogImpl {
 
     private final List<Schema> getSchemas0() {
         return Arrays.<Schema>asList(
-            InformationSchema.INFORMATION_SCHEMA,
-            Mysql.MYSQL,
-            PerformanceSchema.PERFORMANCE_SCHEMA,
-            Sakila.SAKILA,
-            Sys.SYS,
-            World.WORLD);
+            Sakila.SAKILA);
     }
 }
