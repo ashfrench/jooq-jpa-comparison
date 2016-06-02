@@ -9,7 +9,7 @@ import java.util.List;
 @Transactional
 public interface ActorDAO extends CrudRepository<Actor, Long>{
 
-    public List<Actor> findByLastName(String lastName);
+    List<Actor> findByLastName(String lastName);
 }
 
 

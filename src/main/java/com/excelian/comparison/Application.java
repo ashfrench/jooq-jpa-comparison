@@ -21,6 +21,7 @@ public class Application {
         ActorDAO actorDAO = context.getBean(ActorDAO.class);
         Iterable<Actor> actors = actorDAO.findAll();
         for(Actor actor : actors){
+            System.out.println(actor.getId());
             System.out.println(actor);
         }
 
