@@ -1,12 +1,14 @@
 package com.excelian.comparison.db.jpa.entities;
 
 import com.google.common.base.MoreObjects;
+import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table
+@Data //lombok annotation - no more getters and setters
 public class Actor {
 
     @Id
@@ -22,38 +24,6 @@ public class Actor {
 
     @Column(name = "last_update")
     private LocalDateTime lastUpdate;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public LocalDateTime getLastUpdate() {
-        return lastUpdate;
-    }
-
-    public void setLastUpdate(LocalDateTime lastUpdate) {
-        this.lastUpdate = lastUpdate;
-    }
 
     @Override
     public String toString() {
